@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 export async function getData(endpoint: any) {
   try {
-    const response = await fetch(`$/api/${endpoint}`, {
+    const response = await fetch(`/api/${endpoint}`, {
       cache: "no-store",
     });
 
