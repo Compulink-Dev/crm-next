@@ -71,8 +71,8 @@ function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             {"© 2024"}{" "}
-            <a href="https://compulink.co.zw" className="hover:underline">
-              Compulink
+            <a href="/" className="hover:underline">
+              TechTrain
             </a>
             . All Rights Reserved.
           </span>
