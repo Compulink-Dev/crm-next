@@ -1,14 +1,14 @@
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 export async function getData(endpoint: any) {
-    try {
-        const response = await fetch(`${process.env.URL}/api/${endpoint}`, {
-            cache: 'no-store'
-        })
+  try {
+    const response = await fetch(`$/api/${endpoint}`, {
+      cache: "no-store",
+    });
 
-        const data = await response.json()
+    const data = await response.json();
 
-        return data
-    } catch (error) {
-        console.log(error);
-    }
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
