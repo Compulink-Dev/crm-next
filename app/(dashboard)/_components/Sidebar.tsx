@@ -1,239 +1,253 @@
-import { BaggageClaim, Book, BusFront, Cable, ChevronLeft, CreditCard, FileBarChart, Home, LucideTruck, Minimize2, ShoppingCart, Users2, Webhook } from 'lucide-react'
-import Link from 'next/link'
-import React from 'react'
-import SubscriptionCard from './SubscriptionCard'
-import { Button } from '@/components/ui/button'
-import DropDownLink from './DropDownLink'
+import {
+  BaggageClaim,
+  Book,
+  BusFront,
+  Cable,
+  ChevronLeft,
+  CreditCard,
+  FileBarChart,
+  Home,
+  LucideTruck,
+  Minimize2,
+  ShoppingCart,
+  Users2,
+  Webhook,
+} from "lucide-react";
+import Link from "next/link";
+import React from "react";
+import SubscriptionCard from "./SubscriptionCard";
+import { Button } from "@/components/ui/button";
+import DropDownLink from "./DropDownLink";
 
 const inventoryLinks = [
-    {
-        title: "Items",
-        href: "inventory/items/"
-    },
-    {
-        title: "Categories",
-        href: "inventory/categories/"
-    },
-    {
-        title: "Brands",
-        href: "inventory/brands/"
-    },
-    {
-        title: "Units",
-        href: "inventory/units/"
-    },
-    {
-        title: "Warehouse",
-        href: "inventory/warehouse/"
-    },
-    {
-        title: "Adjustments",
-        href: "inventory/adjustments/"
-    },
-    {
-        title: "Suppliers",
-        href: "inventory/suppliers/"
-    },
-]
+  {
+    title: "Items",
+    href: "inventory/items/",
+  },
+  {
+    title: "Categories",
+    href: "inventory/categories/",
+  },
+  {
+    title: "Brands",
+    href: "inventory/brands/",
+  },
+  {
+    title: "Units",
+    href: "inventory/units/",
+  },
+  {
+    title: "Warehouse",
+    href: "inventory/warehouse/",
+  },
+  {
+    title: "Adjustments",
+    href: "inventory/adjustments/",
+  },
+  {
+    title: "Suppliers",
+    href: "inventory/suppliers/",
+  },
+];
 
 const salesLink = [
-    {
-        title: "Customers",
-        href: "sales/customers"
-    },
-    {
-        title: "Sales Order",
-        href: "sales/salesorder"
-    },
-    {
-        title: "Credit Note",
-        href: "sales/creditnote"
-    },
-]
+  {
+    title: "Customers",
+    href: "sales/customers",
+  },
+  {
+    title: "Sales Order",
+    href: "sales/salesorder",
+  },
+  {
+    title: "Credit Note",
+    href: "sales/creditnote",
+  },
+];
 
 const purchaseLink = [
-    {
-        title: "suppliers",
-        href: "purchases/suppliers"
-    },
-    {
-        title: "Purchase Order",
-        href: "purchases/purchaseorder"
-    },
-    {
-        title: "Debit Note",
-        href: "purchases/debit-note"
-    },
-]
+  {
+    title: "suppliers",
+    href: "purchases/suppliers",
+  },
+  {
+    title: "Purchase Order",
+    href: "purchases/purchaseorder",
+  },
+  {
+    title: "Debit Note",
+    href: "purchases/debit-note",
+  },
+];
 
 const humanLink = [
-    {
-        title: "Loans",
-        href: "hr/loans/"
-    },
-    {
-        title: "Leave Forms",
-        href: "hr/leave/"
-    },
-    {
-        title: "Payslips",
-        href: "hr/pay-slips/"
-    },
-    {
-        title: "Employees",
-        href: "hr/employees/"
-    },
-    {
-        title: "Certification",
-        href: "hr/certification/"
-    },
-    {
-        title: "Training",
-        href: "hr/training/"
-    },
-]
+  {
+    title: "Loans",
+    href: "hr/loans/",
+  },
+  {
+    title: "Leave Forms",
+    href: "hr/leave/",
+  },
+  {
+    title: "Payslips",
+    href: "hr/pay-slips/",
+  },
+  {
+    title: "Employees",
+    href: "hr/employees/",
+  },
+  {
+    title: "Certification",
+    href: "hr/certification/",
+  },
+  {
+    title: "Training",
+    href: "hr/training/",
+  },
+];
 
 const fleetLink = [
-    {
-        title: "Invoices",
-        href: "fleet/invoices/"
-    },
-    {
-        title: "Vehicles",
-        href: "fleet/vehicles/"
-    },
-    {
-        title: "Drivers",
-        href: "fleet/drivers/"
-    },
-    {
-        title: "Tracking",
-        href: "fleet/tracking/"
-    },
-]
+  {
+    title: "Invoices",
+    href: "fleet/invoices/",
+  },
+  {
+    title: "Vehicles",
+    href: "fleet/vehicles/",
+  },
+  {
+    title: "Drivers",
+    href: "fleet/drivers/",
+  },
+  {
+    title: "Tracking",
+    href: "fleet/tracking/",
+  },
+];
 
 const reportLink = [
-    {
-        title: "Sales",
-        href: "reports/sales"
-    },
-    {
-        title: "Purchase",
-        href: "reports/purchase"
-    },
-    {
-        title: "Fleet",
-        href: "reports/fleet"
-    },
-    {
-        title: "H.R",
-        href: "reports/hr"
-    },
-    {
-        title: "Payments",
-        href: "reports/payments"
-    },
-    {
-        title: "Projects",
-        href: "reports/projects"
-    },
-]
-
-
-
+  {
+    title: "Sales",
+    href: "reports/sales",
+  },
+  {
+    title: "Purchase",
+    href: "reports/purchase",
+  },
+  {
+    title: "Fleet",
+    href: "reports/fleet",
+  },
+  {
+    title: "H.R",
+    href: "reports/hr",
+  },
+  {
+    title: "Payments",
+    href: "reports/payments",
+  },
+  {
+    title: "Projects",
+    href: "reports/projects",
+  },
+];
 
 function Sidebar({ showSide, setShowSide }: any) {
-    console.log(showSide);
+  console.log(showSide);
 
-    return (
-        <div className={`${showSide ? "w-60 min-h-screen fixed p-4 bg-slate-900 text-white md:flex flex-col  z-50" : "w-60 min-h-screen fixed p-4 bg-slate-900 text-white md:flex flex-col hidden z-50"}`}>
-
-            <div className="flex flex-col gap-2 justify-between">
-                <div className="flex items-center justify-between gap-2 border-b border-slate-400 pb-2 ">
-                    <div className="flex items-center gap-2">
-                        <Webhook />
-                        <span className="text-lg font-bold">Compulink</span>
-                    </div>
-                    <Button
-                        onClick={() => setShowSide(false)}
-                        className='flex md:hidden'
-                    >
-                        <Minimize2 className='h-5 w-5' />
-                    </Button>
-                </div>
-                <nav className="flex flex-col gap-1">
-                    <Link
-                        className='bg-blue-600 hover:bg-blue-400 rounded flex gap-1 items-center px-4 py-2'
-                        href={'/dashboard/home'}>
-                        <Home className='w-4 h-4' />
-                        <span className="text-sm">Home</span>
-                    </Link>
-                    <DropDownLink
-                        href={'inventory'}
-                        Icon={BaggageClaim}
-                        title={'Inventory'}
-                        links={inventoryLinks}
-                        onClick={() => setShowSide(false)}
-
-                    />
-                    <DropDownLink
-                        href={'sales'}
-                        Icon={ShoppingCart}
-                        title={'Sales'}
-                        links={salesLink}
-                        onClick={() => setShowSide(false)}
-                    />
-                    <DropDownLink
-                        href={'purchases'}
-                        Icon={CreditCard}
-                        title={'Purchase'}
-                        links={purchaseLink}
-                        onClick={() => setShowSide(false)}
-                    />
-                    <DropDownLink
-                        href={'hr'}
-                        Icon={Users2}
-                        title={'H.R'}
-                        links={humanLink}
-                        onClick={() => setShowSide(false)}
-                    />
-                    <DropDownLink
-                        href={'fleet'}
-                        Icon={BusFront}
-                        title={'Fleet'}
-                        links={fleetLink}
-                        onClick={() => setShowSide(false)}
-                    />
-                    <DropDownLink
-                        href={'reports'}
-                        Icon={FileBarChart}
-                        title={'Reports'}
-                        links={reportLink}
-                        onClick={() => setShowSide(false)}
-                    />
-                    <Link
-                        className='hover:bg-blue-400 rounded flex gap-1 items-center px-4 py-2'
-                        href={'/dashboard/integrations'}>
-                        <Cable className='w-4 h-4' />
-                        <span className="text-sm">Integration</span>
-                    </Link>
-                    <Link
-                        className='hover:bg-blue-400 rounded flex gap-1 items-center px-4 py-2'
-                        href={'/dashboard/documents'}>
-                        <Book className='w-4 h-4' />
-                        <span className="text-sm">Documents</span>
-                    </Link>
-
-                </nav>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-                <SubscriptionCard />
-                <Button className='bg-slate-950 hover:bg-slate-900'>
-                    <ChevronLeft className='w-4 h-4' />
-                </Button>
-            </div>
+  return (
+    <div
+      className={`${
+        showSide
+          ? "w-60 min-h-screen fixed p-4 bg-slate-900 text-white md:flex flex-col  z-50"
+          : "w-60 min-h-screen fixed p-4 bg-slate-900 text-white md:flex flex-col hidden z-50"
+      }`}
+    >
+      <div className="flex flex-col gap-2 justify-between">
+        <div className="flex items-center justify-between gap-2 border-b border-slate-400 pb-2 ">
+          <div className="flex items-center gap-2">
+            <Webhook />
+            <span className="text-lg font-bold">Crm Dashboard</span>
+          </div>
+          <Button onClick={() => setShowSide(false)} className="flex md:hidden">
+            <Minimize2 className="h-5 w-5" />
+          </Button>
         </div>
-    )
+        <nav className="flex flex-col gap-1">
+          <Link
+            className="bg-blue-600 hover:bg-blue-400 rounded flex gap-1 items-center px-4 py-2"
+            href={"/dashboard/home"}
+          >
+            <Home className="w-4 h-4" />
+            <span className="text-sm">Home</span>
+          </Link>
+          <DropDownLink
+            href={"inventory"}
+            Icon={BaggageClaim}
+            title={"Inventory"}
+            links={inventoryLinks}
+            onClick={() => setShowSide(false)}
+          />
+          <DropDownLink
+            href={"sales"}
+            Icon={ShoppingCart}
+            title={"Sales"}
+            links={salesLink}
+            onClick={() => setShowSide(false)}
+          />
+          <DropDownLink
+            href={"purchases"}
+            Icon={CreditCard}
+            title={"Purchase"}
+            links={purchaseLink}
+            onClick={() => setShowSide(false)}
+          />
+          <DropDownLink
+            href={"hr"}
+            Icon={Users2}
+            title={"H.R"}
+            links={humanLink}
+            onClick={() => setShowSide(false)}
+          />
+          <DropDownLink
+            href={"fleet"}
+            Icon={BusFront}
+            title={"Fleet"}
+            links={fleetLink}
+            onClick={() => setShowSide(false)}
+          />
+          <DropDownLink
+            href={"reports"}
+            Icon={FileBarChart}
+            title={"Reports"}
+            links={reportLink}
+            onClick={() => setShowSide(false)}
+          />
+          <Link
+            className="hover:bg-blue-400 rounded flex gap-1 items-center px-4 py-2"
+            href={"/dashboard/integrations"}
+          >
+            <Cable className="w-4 h-4" />
+            <span className="text-sm">Integration</span>
+          </Link>
+          <Link
+            className="hover:bg-blue-400 rounded flex gap-1 items-center px-4 py-2"
+            href={"/dashboard/documents"}
+          >
+            <Book className="w-4 h-4" />
+            <span className="text-sm">Documents</span>
+          </Link>
+        </nav>
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <SubscriptionCard />
+        <Button className="bg-slate-950 hover:bg-slate-900">
+          <ChevronLeft className="w-4 h-4" />
+        </Button>
+      </div>
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
